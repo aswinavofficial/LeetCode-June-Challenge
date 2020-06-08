@@ -46,6 +46,8 @@ public class RandomWithPick{
 	int []w;
 	Random r = new Random();
 	
+	
+	// Time complexity O(n)
 	public RandomWithPick(int[] w){
 		int sum = 0;
 		// get from [2,3,4]  ->  [2,5,9] 
@@ -54,7 +56,8 @@ public class RandomWithPick{
 		}
 		this.w = w;
 	}
-	
+
+	// Time complexity O(log n)	
 	public int pickIndex() {
 		int size = w.length;
 		  // pick Random Element between 1-9 
