@@ -60,7 +60,7 @@ Output:
  import java.util.ArrayList;
 public class QueueReconstruction{
 	
-	// O(n2)
+	// time complexity O(n2)
 	public int[][] reconstructQueue(int[][] people) {
 	   // first sort the array 
 	   
