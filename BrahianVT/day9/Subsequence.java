@@ -1,6 +1,6 @@
 
 /**
-  Given a string s and anohter called t, check if s is subsequence of t.
+  Given a string s and another called t, check if s is subsequence of t.
   A subsequence of a string is a new string which is formed from  the original
   string by deleting some of the characters without disturbing the relative positions
   of the remaining characters "ace" is subsequence of "abcde" while "aec" is not.
@@ -30,7 +30,7 @@
   
   Start to iterate both elements at index zero
   a = 0 , b = 0 , when the character at the indexes are the same
-  increase both indexes, otherwise increase just a, and iterate until the two 
+  increase both indexes, otherwise increase just b, and iterate until the two 
   indexes are less than their corresponding strings length.
     
  

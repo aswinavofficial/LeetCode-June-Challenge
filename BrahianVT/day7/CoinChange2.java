@@ -20,6 +20,23 @@ Input: amount = 3, coins = [2]
 Output: 0
 Explanation: the amount of 3 cannot be made up just with coins of 2.
 
+	Solution
+	           
+		Input: amount = 5, coins = [1, 2, 5]
+	This problem can be resolve with dynamic programming
+    	 0  1  2  3  4  5     //amount
+	 []  1  0  0  0  0  0
+    [1]  1  1  1  1  1  1 
+  [1 2]  1  1  2  2  3  3
+[1 2 5]  1  1  0  0  0  4 
+
+ The way to resolve that is with this function: 
+ table[row][col] = table[row-1][col] + table[row][col- coins[row -1]]
+ Of course we can not apply with row = 0 (no coins)
+ and the reason is that all the amounts with no coins is zero ways of get that amount, except with amount 0 with that is just 1 way to get that amount.
+ 
+ Once we get the final matrix just get the element in the last row and last col.
+ 
  @author Brahian VT
  
 */
@@ -28,7 +45,7 @@ public class CoinChange2{
 	
 		// using DD
 		
-		// Complexity O( n * amount) ,n = number od coins
+		// Complexity O( n * amount) ,n = number of coins
 	    public int change(int amount, int[] coins) {
 			
 			int res[][] = new int [coins.length + 1][amount + 1];
@@ -47,7 +64,7 @@ public class CoinChange2{
 		}
 	
 	
-	// Using Recursion Too slow basically calculate all posible combinations
+	// Using Recursion Too: Slow basically calculate all posible combinations
 	// here we can use a map or matrix to store all values and avoid to recalculate previous values.
 	
 	public int change2(int[] coins, int index, int amount){

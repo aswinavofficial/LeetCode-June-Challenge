@@ -19,11 +19,11 @@ Output:
   So remember satisfies the property about k for example:
   this two would be right:
   
-  [[5,0], [7,0], [5,2], [6,1], [4,4], [7,1]] , [[5,0], [7,0], [6,1], [5,2], [4,4], [7,1]]
+  [[5,0], [7,0], [5,2], [6,1], [4,4], [7,1]] = [[5,0], [7,0], [6,1], [5,2], [4,4], [7,1]]
   
-  However, what we want is the first because there are more success for example [5,2] in the 
+  However, what we want is the first because there are more success cases for example [5,2] in the 
   second list has k = 2, with this we know there are 2 or more and is fine.
-  but in the first is more accurata
+  but in the first is more accurate.
   
   Another Example
   5,0], [7,0], [9,0], [5,2] will become ->   5,0], [7,0], [5,2], [9,0]
@@ -32,7 +32,7 @@ Output:
  So,you never will get as input array like this :
 
   [7,0], [4,4], [7,5] in the last element is invalid because k is 5 but just are 3 elements in the list.
-
+  --------------------------------
 
 	Solutions
 	
