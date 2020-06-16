@@ -22,10 +22,10 @@ Output: false
 	
 	having as input 5: 
 	101    and (5-1) = 4
-	 11
+	100&
     -----
-     001    apply the and operator
-	 if the result is one is not  power of two. 
+    101    apply the and operator
+	 if the result is not one ,  it is not  power of two. 
   @author Brahian VT
 */
 
