@@ -3,9 +3,28 @@
 
 /**  
   Start to find in the first and last row and columns respectively
-  and just find all the elements "O" with all its neighbours and just change all the elements
+  and just find all the elements "O" with all their neighbours and just change all the elements
   "O" that not match this statement and that all.  
   
+  Example [ X X X X]
+          [ X O O X]
+		  [ X X O X]
+		  [ X O X X]
+		  
+		  First find all the elements in the first-last row and in the first-last columns and change
+		  all the Os and their neighbours to P 
+		  
+		  [ X X X X]
+          [ X O O X]
+		  [ X X O X]
+		  [ X P X X]
+		  
+		  So arfer that just replace the rest of the Os to X and the Ps to X and that's all
+		  [ X X X X]
+          [ X X X X]
+		  [ X X X X]
+		  [ X O X X]		  
+		  
     @author Brahian VT
 */
 
