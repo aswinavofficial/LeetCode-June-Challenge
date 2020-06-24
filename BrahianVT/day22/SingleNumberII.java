@@ -18,10 +18,10 @@ Output: 99
   
   Solution 
   having the input = [2, 2, 3, 2]
-  
+      
   The best way of do it is using bitwise operations
   
-  lo let's visualize the inour in binary elements
+  So let's visualize the inour in binary elements
 	
    We can see just one sequence is different so that the element we need to find:
     
@@ -31,7 +31,7 @@ Output: 99
   10
   10
   11
-  11
+  10
     
 	So iterate the array and caculate ones:
 	i = 0     xor operation
@@ -57,7 +57,7 @@ Output: 99
 	10
    ~01
    ----
-    00 -> ones
+    00 -> twos
 	
 	after first iteration ones = 2, twos = 0 and that's correct because
 	2 is the first element and just is one element so far.
@@ -80,6 +80,13 @@ Output: 99
 public class SingleNumberII{
 	
 	public int singleNumber(int[] nums) {
-		return 0;
+		int ones = 0, twos = 0;
+		
+		for(int i = 0; i < nums.length; i++){
+			ones = (ones ^ nums[i]) & ~twos;
+			twos = (twos ^ nums[i]) & ~ones; 
+		}
+		
+		return ones;
 	}
 }
