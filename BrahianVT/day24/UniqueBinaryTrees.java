@@ -60,7 +60,7 @@ public class UniqueBinaryTrees{
 		
 		for(int level = 2; level <= n; level++){
 			for(int root = 1; root<= level; root++){
-				res[level]+= res[level] res[level - root] * res[root -1];
+				res[level]+= res[level - root] * res[root -1];
 			}
 		}
 				
