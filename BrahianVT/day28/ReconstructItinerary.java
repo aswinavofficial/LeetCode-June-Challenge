@@ -22,9 +22,9 @@ Explanation: Another possible reconstruction is ["JFK","SFO","ATL","JFK","ATL","
 			 
 	Solution
 	
-	The problem us related to graphs so first we need the adjacent list
-	In this case we will use a hash map using has key the first airport and as
-	value all the airports linked to it , we will use a min priorityqueue to 
+	The problem is related to graphs so first we need the adjacent list
+	In this case we will use a hashMap using has key as the first airport and as
+	value all the airports linked to it , we will use a min priorityQueue to 
 	Store the values because it must be sorted
 	Here 
 	l = [["MUC", "LHR"], ["JFK", "MUC"], ["SFO", "SJC"], ["LHR", "SFO"]]
@@ -38,7 +38,7 @@ Explanation: Another possible reconstruction is ["JFK","SFO","ATL","JFK","ATL","
 	
 	So once we have the adjacent list: we need to use the Eulerian Path to find the result.
 	
-	Fisrt keep going forward until you get stuck. the remainig tickets form cycles which
+	First keep going forward until you get stuck. the remainig tickets form cycles which
 	are found on the way back and get merged into that main path.
 	
 	By writing down the path backwards when retreating  from recursion, merging the cycles
@@ -56,7 +56,7 @@ Explanation: Another possible reconstruction is ["JFK","SFO","ATL","JFK","ATL","
 	So we will look first in that key and we will find the path backwards.
 
 	airport = JFK	
-	 look at the hashMap for the key "JFK" it it contains the key 
+	 look up at the hashMap for the key "JFK" it it contains the key 
 	 go through recursion taking as key the first value and delete it from the map
 	
 	airport = JFK	go recursion
@@ -97,6 +97,27 @@ Explanation: Another possible reconstruction is ["JFK","SFO","ATL","JFK","ATL","
 	res = [JMK, MUC, LHR, SFO, SJC]
   @author Brahian VT
 */
+import java.util.*;
 public class ReconstructItinerary{
 	
+	Map<String, PriorityQueue<String>> targets = new HashMap<>();
+	List<String> results = new LinkedList();
+	public List<String> findItinerary(List<List<String>> tickets) {
+			
+		for(List<String> ticket : tickets){
+			targets.computeIfAbsent(ticket.get(0) , v -> new PriorityQueue()).add(ticket.get(1));
+		}
+		// Start with the first airport
+		travel("JMK");
+		
+		return results;
+	}
+	
+	private void travel(String airport){
+		while(targets.containsKey(airport) && !targets.get(airport).isEmpty()){
+			travel(targets.get(airport).poll());
+		}
+		
+		results.add(0, airport);
+	}
 }
